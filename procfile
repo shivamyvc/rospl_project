@@ -1,0 +1,1 @@
+web: gunicorn getfit.wsgi --log-file -

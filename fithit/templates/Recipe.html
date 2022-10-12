@@ -1,0 +1,142 @@
+{% extends "basenavbar.html" %}
+{%load static%}
+
+{% block content %}
+
+<title>{{fetch_recpie.0.recipe_title}}</title>
+<section class="css-section-play">
+  <a href="#main-content">
+    <div class="css-video-item">
+      <img src="/media/{{fetch_recpie.0.thumbnail}}"
+        width="822px" height="480px" alt="error">
+      <div class="css-video-desc">
+        <h2 class="heading -x-small caps-half demi details">RECIPE DETAILS</h2>
+        <div class="stats">
+          <ul class="details-list">
+            <li>
+              <span class="detail-header">Meal Type:</span>
+              <span class="detail-value demi">{{fetch_recpie.0.recipe_category}}</span>
+            </li>
+            <li>
+              <span class="detail-header">Dietary Type: </span>
+              <span class="detail-value demi">{{fetch_recpie.0.recipe_dietary_type}}</span>
+            </li>
+            <li>
+              <span class="detail-header">Prep Time:</span>
+              <span class="detail-value demi">{{fetch_recpie.0.recipe_prep_time}} Min</span>
+            </li>
+            <li>
+              <span class="detail-header">Cook Time:</span>
+              <span class="detail-value demi">{{fetch_recpie.0.recipe_make_time}} Min</span>
+            </li>
+            <li>
+              <span class="detail-header">Serves:</span>
+              <span class="detail-value demi">{{fetch_recpie.0.recipe_serves}}</span>
+            </li>
+
+
+          </ul>
+
+        </div>
+      </div>
+  </a>
+
+  <div class="recipe-article-container ">
+    <section id="main-content">
+      <h1 class="heading -large">{{fetch_recpie.0.recipe_title}}</h1>
+
+      <section class="content-group -no-spacer -vs-medium -vs-collapse-top -column -body-section">
+        <div class="group -vs-small">
+          {% if fetch_recpie.0.recipe_infos != "None" %}
+          <p><strong></strong><br>
+          {{fetch_recpie.0.recipe_infos}}  
+          </p>
+          {% endif %}
+          </div>
+      </section>
+    </section>
+    <!-- Ingredients -->
+    <section class="content-group -no-spacer -vs-medium -vs-collapse-top -column -body-section">
+      <h2 class="heading -small demi">Ingredients</h2>
+      <div class="vue group -vs-small">
+        <div class="recipe-ingredients">
+          <ul class="ingredient-list">
+            {% for i in ingredientlist %}
+            <li class="ingredient-info">
+              <!-- <span class="amount">
+                {{i}}
+              </span>  -->
+              <span class="ingredient">{{i}}</span> 
+              <!-- <span class="ingredient-notes">{{i.2}}</span>  -->
+            </li>
+            {%endfor%}
+        </div>
+      </div>
+
+    </section>
+    <!-- <section class="content-group -no-spacer -vs-medium -vs-collapse-top -column -body-section">
+      <h2 class="heading -small demi">Ingredients</h2>
+      <div class="vue group -vs-small">
+        <div class="recipe-ingredients">
+          <ul class="ingredient-list">
+            <li class="ingredient-info"><span class="amount">
+                4
+                cup
+              </span> <span class="amount" style="display: none;">
+                480
+                g
+              </span> <span class="ingredient">mixed berries</span> <span class="ingredient-notes">frozen</span></li>
+            <li class="ingredient-info"><span class="amount">
+                ¼
+                cup
+              </span> <span class="amount" style="display: none;">
+                60
+                mL
+              </span> <span class="ingredient">honey</span> <span class="ingredient-notes">(or agave)</span></li>
+            <li class="ingredient-info"><span class="amount">
+                1
+                cup
+              </span> <span class="amount" style="display: none;">
+                245
+                g
+              </span> <span class="ingredient">plain Greek yogurt</span> <span class="ingredient-notes"></span></li>
+            <li class="ingredient-info"><span class="amount">
+                1
+                Tbsp.
+              </span> <span class="amount" style="display: none;">
+                15
+                mL
+              </span> <span class="ingredient">lemon juice</span> <span class="ingredient-notes"></span></li>
+          </ul>
+        </div>
+      </div>
+
+
+
+    </section> -->
+
+    <!-- Steps -->
+
+    <section class="content-group -no-spacer -vs-medium -vs-collapse-top -column -body-section">
+
+      <h2 class="heading -small demi">Preparation Instructions</h2>
+
+      <div class="vue group -vs-small">
+        <div class="body-checklist">
+          <ul class="int-checklist">
+            {% for i in prep_steps  %}
+            <li role="button" tabindex="0" class="checklist-item -complete"><span class="list-item-ico"><i
+                  class="material-icons"></i></span>
+              {{i}}
+            </li>
+            {%endfor%}
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+  </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,152 @@
+{% extends "basenavbar.html" %}
+{%load static%}
+
+{% block content %}
+ <title>Home</title>
+<body class="css-indesx">
+    <!-- Welcome Banner -->
+
+    <div class="welcome-banner">
+        <div class="css-welcome-img-container welcome-0001 welcome-0002">
+            <h1 class="css-welcome-h">WELCOME TO FIT-HIT</h1>
+            <img  src="{% static 'images/Run2-1024x512.jpg'%}" alt="">
+                       
+        </div>
+    </div>
+    <!-- intro box -->
+    <div class="css-intro-banner">
+        
+            <div class="css-info">
+                <P style="padding:10px 10px; font-size: 25px ; font: bolder;">Fit-Hit</P>
+                <p class="css-info-para">
+
+               
+                We strive
+                 to keep you fit &amp; healthy through a
+                  range of holistic offerings that
+                   include fitness and yoga, healthy
+                    meals, mental wellbeing and primary
+                     care. Now anyone can now stay healthy
+                      from the safety of their homes 
+                      with just a single app that helps you 
+                      to 
+                #BeBetterEveryDay
+            </p>
+            </div>
+            <div class="css-intro-img">
+                <p>
+                    "Inhale the future, exhale the past."
+                </p> 
+                <img class="css-intro-attached" src="{% static 'images/infot 003.jpg'%}" alt="">
+
+            </div>
+
+    </div>
+
+    <!-- Joi nOw Banner -->
+
+    {% if user.is_authenticated %}
+
+    <div class="css-join-now">
+        <a class="css-a-btn" href="{% url 'videos'%}"><button class="css-btn-join">Explore Programs </button> </a>
+        <img class="css-join-banner"  src="{% static 'images/cta-bg.jpg'%}" alt="">
+
+    </div>
+
+    {%else%}
+    <div class="css-join-now">
+        <a class="css-a-btn" href="Signup"><button class="css-btn-join"> Become  Member</button> </a>
+        <img class="css-join-banner"  src="{% static 'images/cta-bg.jpg'%}" alt="">
+
+    </div>
+    {%endif%}
+
+    <section id="text-3" class="widget-even widget-4 homepage-widget__intro-text widget widget_text"><div class="widget-wrap">	
+        <a  href="#Eatbettr">
+            <p class="css-eat-better">
+                Eat Better
+            </p>
+            <h1>Healthy Eating and Fitness Recipes for the Whole Family</h1>
+
+        </a>
+        <div class="textwidget">
+
+        <p class="css-eat-with-family">Here you’ll find healthy 
+            dishes that don’t sacrifice 
+            any of the flavor that can be found 
+            in their full-fat origins. People
+             may think eating healthy is boring 
+             but that’s furthest from the truth.
+              You can still enjoy delicious tasting 
+              meals with healthier alternatives. 
+              I believe in the idea of everything in
+               moderation. I do sometimes cook what
+                you call “cheat meals” and we enjoy 
+            them occasionally.</p>
+        </div>
+        <div class="css-eat-better-image">
+            <img src="{%static 'images/recipe/Healthy-Chocolate-chip-zucchini-bread-8-360x360.jpg'%}" alt="">
+        </div>
+            
+    </section>
+
+    <!-- Fetures section -->
+    <div id="Fetures-section" class="css-index-row1">
+        <div class="css-index-row1-items">
+            <div class="css-item"> 
+                <a href="videos">
+                <img src="https://fitnessonline.app/en/img/sp-icon1.svg" alt=""></a>
+                <p>Muscle building</p>
+                For people who want 
+                to get bigger and 
+                effectively increase 
+                muscle mass while keeping 
+                fat increase to a minimum.
+            </div>
+
+            <div class="css-item">
+                <a href="videos">
+                <img src="https://fitnessonline.app/en/img/sp-icon2.svg" alt=""></a>
+                <p>Weight loss</p>
+                Are you looking to lose
+                 a significant amount of 
+                 weight? Speed up your 
+                 metabolism with our awesome 
+                 workouts while eating enough
+                  healthy food
+                 without going hungry.
+            </div>
+
+            <div class="css-item">
+                <a href="videos">
+                <img src="https://fitnessonline.app/en/img/sp-icon3.svg" alt="">
+            </a>
+                <p>Sculpted body</p>
+                A great choice for people who want to get ripped, lose excess fat and tone their muscles.
+            </div>
+
+            <div class="css-item">
+                <a href="videos">
+                <img src="https://fitnessonline.app/en/img/sp-icon4.svg" alt=""></a>
+                <p>6 pack abs</p>
+                To emphasize the abs it's important to have no more than 10% body fat. Lean out with a focus on creating defined abs and obliques.
+            </div>
+
+            <div class="css-item">
+                <a href="videos">
+                <img src="https://fitnessonline.app/en/img/sp-icon6.svg" alt=""></a>
+                <p>Wide back</p>
+                The back muscles are very difficult to grow properly! Strict adherence to the exercise technique, powerful workouts and a strict diet are the recipes to success.            </div>
+   
+            <div class="css-item">
+                <a href="videos">
+                <img src="https://fitnessonline.app/en/img/sp-icon10.svg" alt=""></a>
+                <p>Promoting healthy workouts</p>
+                If you have any adverse health conditions, but you want to work out safely, it’s important to train the body without risking your health.
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
+

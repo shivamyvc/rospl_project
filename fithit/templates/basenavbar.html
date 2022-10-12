@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<header class="header">
+    <img class="logo"  src="{% static 'images/logo.png'%}" alt="Notfound">
+    <nav>
+        <ul class="nav_links">
+            <li><a href="{% url 'home'%}" class="active">Home</a></li>
+            <!-- <li><a href="{% url 'about'%}">About</a></li> -->
+            <li><a href="{% url 'Eatbetter'%}">Eat better</a></li>
+            <li><a href="{% url 'videos'%}">Videos</a></li>
+            <!-- <li><a href="#contact-us">Contact</a></li>  -->
+            {% if user.is_authenticated %}
+            <li class="main-button"><a href="#profile">{{request.user.first_name}}</a></li>
+            <li class="main-button"><a href="{% url 'logout-user'%}">Logout</a></li>
+            {%else%}
+            <li class="main-button"><a href="{% url 'Login_signup'%}">Join</a></li>
+            {%endif%}
+            
+        </ul> 
+    </nav>
+</header>
+<body>
+    
+
+
+    {% block content %}
+
+    {% endblock %}
+</body>
+<footer class="css-footer">
+    <!-- <div class="css-footer"> -->
+
+    
+	<p>
+		Created  <i class="fa fa-heart"></i> by
+		<a target="_blank" href="#"">Group 9iNE</a>
+		- Read how you can join us
+		<a target="_blank" href=#>here</a>.
+	</p>
+<!-- </div> -->
+</footer>
+
+</html>

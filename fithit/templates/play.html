@@ -1,0 +1,72 @@
+{% extends "basenavbar.html"%}
+{%load static%}
+{%block content%}
+<title>{{video_data.0.video_title}}
+
+</title>
+
+
+<link rel="stylesheet" href="{% static 'css/style.css'%}">
+<section class="css-section-play">
+<a class="css-video-title" href="{{video_data.0.embed_link}}">{{video_data.0.video_title}}</a>
+<div class="css-video-item">
+    <!-- <div class="css-video-content"> -->
+        <iframe width="822px"height="480px" src="{{video_data.0.embed_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- </div> -->
+    <div class="css-video-desc">
+        <h2 class="heading -x-small caps-half demi details">Workout Details</h2>
+        <div class="stats">
+            <ul class="details-list">
+              <li>
+                <span class="detail-header">Duration:</span>
+                <span class="detail-value demi">{{video_data.0.video_duration}} Minutes</span>
+              </li>
+              <li>
+                <span class="detail-header">Calorie Burn:</span>
+                <span class="detail-value demi">{{video_data.0.Calorie}}</span>
+              </li>
+              <li>
+                <span class="detail-header">Difficulty:</span>
+                <span class="detail-value demi">{{video_data.0.w_difficulty}}</span>
+              </li>
+              <li>
+                <span class="detail-header">Equipment:</span>
+                <span class="detail-value demi">{{video_data.0.w_equipment}}</span>
+              </li>
+              <li>
+                <span class="detail-header">Training Type:</span>
+                <span class="detail-value demi">{{video_data.0.training_type}}</span>
+              </li>
+              
+                              <li>
+                  <span class="detail-header">Video Player:</span>
+                  <span class="detail-value demi"><a class="alt-player" href="{{video_data.0.embed_link}}" target="_blank" rel="noopener noreferrer">View on YouTube</a></span>
+                </li>
+                          </ul>
+
+          </div>
+    </div>
+    
+</div>
+
+</section>
+
+<div class="css-video-summary">
+  <h1 class="css-summary-heading">Summary</h1>
+    <div class="css-summary-para">
+      {% for i in summary %}
+
+      <p><strong></strong><br>
+        {{i}}
+      </p>
+
+      {% endfor %}
+    </div>
+</div>
+
+
+    
+
+
+
+{%endblock%}

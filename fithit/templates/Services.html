@@ -1,0 +1,90 @@
+{% extends "basenavbar.html" %}
+{%load static%}
+{% block content %}
+<title>Videos</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{%static 'css/style.css'%}">
+
+<section class="videos-page">
+  <h1 class="heading-primary-text">
+    Workout Programs
+  </h1>
+  <form action="{%url 'Search' %}" method="POST">
+    {% csrf_token %}
+  <div class="css-filter">
+    <label class="css-filter-lable" for="css-filter-category">Filter</label>
+    <select id="filter" class="css-filter-category" name="filter">
+      <option value="None" selected>None</option>
+      {% if filtervalue is null %}
+      <option value="None" selected>None</option>
+      {% else %}
+      <option value="{{filtervalue}}" selected>{{filtervalue}}</option>
+    {% endif %}
+    <option value="Strength training ">Strength training </option>
+      <option value="HIIT">HIIT</option>
+      <option value="Warm up">Warm up</option>
+  </select>
+
+
+  {% if search_value == None %}
+  <input id="css-video-search" type="text" placeholder="Search.." name="search_input"/>
+  {% else %}
+  <input id="css-video-search" type="text" placeholder="{{search_value}}" name="search_input"/>
+{% endif %}
+  <button type="submit" class="searchButton">
+    <i class="fa fa-search"></i>
+ </button>
+</div>
+</form>
+
+  <div class="video-galley">
+
+
+      
+    <div class="gallery-content-holder">
+      {%for i in v_data %}
+    
+      
+      <div class="content-item">
+        <a itemid="{{i.video_id}}" href="{% url 'play' video_id=i.video_id %}" class="contents" value={{video_id}}  >
+         
+          <div class="content-info">
+            <div class="content-thumbnail">
+              <div class="content-thumbnail">
+                <div class="content-thumbnail-holder">
+          <img class="videothumb lazyfade lazyloaded"
+           src="/media/{{i.thumbnail}}"  width="332px" height="200px" alt="Error">
+
+          <div class="content-details">
+            <span class="eyebrow demi caps">
+              {{i.training_type}} <span>{{i.video_duration}} MIN</span>
+            </span>
+            <h3 class="-x-small demi">
+              {{i.video_title}}
+            </h3>
+
+            <ul class="content-meta">
+              <li>
+                <span class="term">Calorie Burn :<span class="def">{{i.calorie}}</span></span>
+                
+              </li>
+              <li><span class="term">Difficulty :<span class="def">{{i.w_difficulty}}</span></span>
+                
+              </li>
+              <li><span class="term">Equipment :<span class="def">{{i.w_equipment}}</span></span>
+                
+              </li>
+            </ul>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}
