@@ -12,7 +12,6 @@ urlpatterns = [
     path("",views.Home,name='home'),
     path('videos',views.videos,name='videos'),
     path('Signup',views.Signup,name='Login_signup'),
-    # path('play/<str:video_id>/', views.play, name='play'),
     path('search',views.filter_video,name='Search'),
     path('search_recipe',views.filter_recipe,name='Search-recipe'),
     path('recipe/<str:recipe_id>/', views.view_recipe, name='recipe'),
